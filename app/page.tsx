@@ -3,36 +3,8 @@
 import React from "react"
 import Link from 'next/link';
 import { ArrowRight, Shield, Zap, Network, CheckCircle2, Lock, TrendingUp, Users } from 'lucide-react';
-import { useState, useRef } from 'react';
 
 export default function Home() {
-  const [bannerImage, setBannerImage] = useState<string>('');
-  const [logoImage, setLogoImage] = useState<string>('');
-  const bannerInputRef = useRef<HTMLInputElement>(null);
-  const logoInputRef = useRef<HTMLInputElement>(null);
-
-  const handleBannerUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        setBannerImage(event.target?.result as string);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
-  const handleLogoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        setLogoImage(event.target?.result as string);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
   const services = [
     {
       icon: Shield,
@@ -68,31 +40,14 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Hero Banner Container */}
           <div className="relative rounded-2xl overflow-hidden bg-gradient-to-r from-blue-600/10 to-slate-800/20 border border-slate-700/50 backdrop-blur-sm p-12 md:p-16">
-            {/* Banner Background Image */}
-            {bannerImage && (
-              <div
-                className="absolute inset-0 bg-cover bg-center opacity-30"
-                style={{ backgroundImage: `url(${bannerImage})` }}
-              />
-            )}
+            {/* Banner Background Image - REMPLACEZ '/images/banner.jpg' par votre image */}
+            <div
+              className="absolute inset-0 bg-cover bg-center opacity-30"
+              style={{ backgroundImage: `url('/images/banner.jpg')` }}
+            />
 
             {/* Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-slate-900/60" />
-
-            {/* Edit Banner Button */}
-            <button
-              onClick={() => bannerInputRef.current?.click()}
-              className="absolute top-4 right-4 px-4 py-2 bg-blue-600/80 hover:bg-blue-600 text-white rounded-lg text-sm font-medium transition-all z-10"
-            >
-              Modifier bannière
-            </button>
-            <input
-              ref={bannerInputRef}
-              type="file"
-              onChange={handleBannerUpload}
-              accept="image/*"
-              className="hidden"
-            />
 
             {/* Content */}
             <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
@@ -124,29 +79,15 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Right Section - Logo Upload */}
+              {/* Right Section - Logo fixe - REMPLACEZ '/images/logo.png' par votre logo */}
               <div className="flex-shrink-0">
-                <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 p-1 shadow-2xl shadow-blue-500/30 cursor-pointer group"
-                  onClick={() => logoInputRef.current?.click()}>
-                  {logoImage ? (
-                    <img
-                      src={logoImage || "/placeholder.svg"}
-                      alt="Logo"
-                      className="w-full h-full rounded-full object-cover"
-                    />
-                  ) : (
-                    <div className="w-full h-full rounded-full bg-slate-950 flex items-center justify-center group-hover:bg-slate-900 transition-colors">
-                      <Lock className="w-16 h-16 md:w-20 md:h-20 text-blue-400 opacity-50 group-hover:opacity-70 transition-opacity" />
-                    </div>
-                  )}
+                <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 p-1 shadow-2xl shadow-blue-500/30">
+                  <img
+                    src="/favicon.png"
+                    alt="Logo entreprise"
+                    className="w-full h-full rounded-full object-cover bg-white"
+                  />
                 </div>
-                <input
-                  ref={logoInputRef}
-                  type="file"
-                  onChange={handleLogoUpload}
-                  accept="image/*"
-                  className="hidden"
-                />
                 <p className="text-center text-slate-400 text-sm mt-3">Logo entreprise</p>
               </div>
             </div>
