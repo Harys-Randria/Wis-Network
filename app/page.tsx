@@ -88,7 +88,6 @@ export default function Home() {
                     className="w-full h-full rounded-full object-cover bg-white"
                   />
                 </div>
-                <p className="text-center text-slate-400 text-sm mt-3">Logo entreprise</p>
               </div>
             </div>
           </div>
