@@ -324,8 +324,8 @@ export default function Contact() {
                   <p className="text-slate-300 mb-2">
                     Appelez-nous directement :
                   </p>
-                  <a href="tel:+33123456789" className="text-blue-400 font-bold text-lg hover:text-blue-300 transition-colors">
-                    +33 1 23 45 67 89
+                  <a href="tel:+33695862056" className="text-blue-400 font-bold text-lg hover:text-blue-300 transition-colors">
+                    +33 6 95 86 20 56
                   </a>
                   <p className="text-sm text-slate-400 mt-2">
                     Lundi-Vendredi : 9h-18h

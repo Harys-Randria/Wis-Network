@@ -23,9 +23,9 @@ export function Footer() {
 
   const socialLinks = [
     { icon: Linkedin, href: 'https://www.linkedin.com/in/walid-benbella/', label: 'LinkedIn' },
-    { icon: Calendar, href: 'https://calendly.com/pro-walid-benbella/30min', label: 'Calendly' },
+    { icon: Calendar, href: 'https://calendly.com/contact-wis-networks/30min', label: 'Calendly' },
     { icon: Briefcase, href: 'https://www.malt.fr/profile/walidbenbella', label: 'Malt' },
-    { icon: Users, href: 'https://collective.work/votre-profil', label: 'Collective' },
+    { icon: Users, href: 'https://www.collective.work/profile/walid-ben-bella', label: 'Collective' },
   ];
 
   return (
@@ -56,15 +56,15 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-2 text-slate-300 text-sm">
                 <Phone className="w-4 h-4 text-blue-400" />
-                <a href="tel:+33123456789" className="hover:text-blue-400 transition-colors">
-                  +33 (0)1 23 45 67 89
+                <a href="tel:+33695862056" className="hover:text-blue-400 transition-colors">
+                  +33 6 95 86 20 56 
                 </a>
               </div>
               <div className="flex items-start gap-2 text-slate-300 text-sm">
                 <MapPin className="w-4 h-4 text-blue-400 flex-shrink-0 mt-0.5" />
                 <span>
-                  123 Avenue des Champs<br/>
-                  75000 Paris, France
+                  54 avenue du marechal leclerc<br/>
+                  77230 dammartin en goele
                 </span>
               </div>
             </div>
