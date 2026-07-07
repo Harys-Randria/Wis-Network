@@ -124,3 +124,34 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Particules du fond animé — animation CSS (compositor, hors thread JS) */
+@keyframes wis-particle-float {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(-30px) scale(1.5);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+}
+
+.wis-particle {
+  animation-name: wis-particle-float;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  will-change: transform, opacity;
+}
+
+/* Respecte la préférence système "réduire les animations" */
+@media (prefers-reduced-motion: reduce) {
+  .wis-particle {
+    animation: none;
+    opacity: 0.3;
+  }
+}

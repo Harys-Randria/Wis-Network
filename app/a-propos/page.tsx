@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { AnimatedBackground } from '@/components/animated-background';
 import { 
   ArrowRight, 
   CheckCircle2, 
@@ -20,65 +21,6 @@ import {
   Clock,
   Server
 } from 'lucide-react';
-
-// ============================================================
-// COMPOSANTS DE FOND ANIMÉ (identiques à l'accueil pour cohérence)
-// ============================================================
-
-const ParticleField = () => {
-  const particles = Array.from({ length: 25 }, (_, i) => ({
-    id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    size: Math.random() * 2 + 1,
-    duration: Math.random() * 20 + 10,
-    delay: Math.random() * 10,
-  }));
-
-  return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {particles.map((p) => (
-        <motion.div
-          key={p.id}
-          className="absolute rounded-full bg-blue-400/20"
-          style={{ left: `${p.x}%`, top: `${p.y}%`, width: p.size, height: p.size }}
-          animate={{ y: [0, -30, 0], opacity: [0, 0.6, 0], scale: [1, 1.5, 1] }}
-          transition={{ duration: p.duration, delay: p.delay, repeat: Infinity, ease: "easeInOut" }}
-        />
-      ))}
-    </div>
-  );
-};
-
-const GridOverlay = () => (
-  <div 
-    className="absolute inset-0 opacity-[0.03] pointer-events-none"
-    style={{
-      backgroundImage: `
-        linear-gradient(rgba(59, 130, 246, 0.5) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(59, 130, 246, 0.5) 1px, transparent 1px)
-      `,
-      backgroundSize: '80px 80px',
-    }}
-  />
-);
-
-const FloatingOrbs = () => (
-  <div className="absolute inset-0 overflow-hidden pointer-events-none">
-    <motion.div
-      className="absolute top-1/3 left-1/3 w-[400px] h-[400px] rounded-full"
-      style={{ background: 'radial-gradient(circle, rgba(59,130,246,0.06) 0%, transparent 70%)', filter: 'blur(60px)' }}
-      animate={{ x: [0, 80, 0], y: [0, -40, 0] }}
-      transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
-    />
-    <motion.div
-      className="absolute bottom-1/4 right-1/4 w-[350px] h-[350px] rounded-full"
-      style={{ background: 'radial-gradient(circle, rgba(99,102,241,0.05) 0%, transparent 70%)', filter: 'blur(60px)' }}
-      animate={{ x: [0, -60, 0], y: [0, 50, 0] }}
-      transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
-    />
-  </div>
-);
 
 // ============================================================
 // COMPOSANT RÉUTILISABLE : SECTION ANIMÉE
@@ -134,11 +76,7 @@ export default function APropos() {
   return (
     <main className="relative bg-slate-950 min-h-screen overflow-x-hidden">
       {/* Fond animé global */}
-      <div className="fixed inset-0 pointer-events-none">
-        <ParticleField />
-        <GridOverlay />
-        <FloatingOrbs />
-      </div>
+      <AnimatedBackground fixed />
 
       {/* ============================================================ */}
       {/* HERO */}

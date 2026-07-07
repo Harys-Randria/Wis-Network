@@ -2,7 +2,8 @@
 
 import React, { useState } from "react";
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll } from 'framer-motion';
+import { AnimatedBackground } from '@/components/animated-background';
 import { 
   ArrowRight, 
   Shield, 
@@ -33,65 +34,6 @@ import {
 } from 'lucide-react';
 
 // ============================================================
-// FOND ANIMÉ
-// ============================================================
-
-const ParticleField = () => {
-  const particles = Array.from({ length: 30 }, (_, i) => ({
-    id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    size: Math.random() * 2 + 1,
-    duration: Math.random() * 20 + 10,
-    delay: Math.random() * 10,
-  }));
-
-  return (
-    <div className="fixed inset-0 overflow-hidden pointer-events-none">
-      {particles.map((p) => (
-        <motion.div
-          key={p.id}
-          className="absolute rounded-full bg-blue-400/20"
-          style={{ left: `${p.x}%`, top: `${p.y}%`, width: p.size, height: p.size }}
-          animate={{ y: [0, -30, 0], opacity: [0, 0.6, 0], scale: [1, 1.5, 1] }}
-          transition={{ duration: p.duration, delay: p.delay, repeat: Infinity, ease: "easeInOut" }}
-        />
-      ))}
-    </div>
-  );
-};
-
-const GridOverlay = () => (
-  <div 
-    className="fixed inset-0 opacity-[0.03] pointer-events-none"
-    style={{
-      backgroundImage: `
-        linear-gradient(rgba(59, 130, 246, 0.5) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(59, 130, 246, 0.5) 1px, transparent 1px)
-      `,
-      backgroundSize: '60px 60px',
-    }}
-  />
-);
-
-const FloatingOrbs = () => (
-  <div className="fixed inset-0 overflow-hidden pointer-events-none">
-    <motion.div
-      className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full"
-      style={{ background: 'radial-gradient(circle, rgba(59,130,246,0.06) 0%, transparent 70%)', filter: 'blur(60px)' }}
-      animate={{ x: [0, 100, 0], y: [0, -50, 0] }}
-      transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
-    />
-    <motion.div
-      className="absolute bottom-1/3 right-1/4 w-[400px] h-[400px] rounded-full"
-      style={{ background: 'radial-gradient(circle, rgba(99,102,241,0.05) 0%, transparent 70%)', filter: 'blur(60px)' }}
-      animate={{ x: [0, -80, 0], y: [0, 60, 0] }}
-      transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-    />
-  </div>
-);
-
-// ============================================================
 // SECTION ANIMÉE
 // ============================================================
 const AnimatedSection = ({ children, className = "", delay = 0, id }: { children: React.ReactNode; className?: string; delay?: number; id?: string }) => (
@@ -110,15 +52,6 @@ const AnimatedSection = ({ children, className = "", delay = 0, id }: { children
 // ============================================================
 // DONNÉES
 // ============================================================
-
-const clients = [
-  { name: 'Linxens', logo: '/linxens.png' },
-  { name: 'Tereos', logo: '/tereos.png' },
-  { name: 'Fnac Darty', logo: '/fnacdarty.png' },
-  { name: 'Thales', logo: '/thales.png' },
-  { name: 'Safran', logo: '/safran.png' },
-  { name: 'Calderys', logo: '/calderys.png' },
-];
 
 const services = [
   {
@@ -282,6 +215,7 @@ const FAQItem = ({ question, answer, isOpen, onToggle, delay = 0 }: { question: 
 // ============================================================
 export default function Home() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+  const { scrollYProgress } = useScroll();
 
   const toggleFAQ = (index: number) => {
     setOpenFAQ(openFAQ === index ? null : index);
@@ -290,17 +224,12 @@ export default function Home() {
   return (
     <main className="relative bg-slate-950 min-h-screen overflow-x-hidden">
       {/* Fond animé global */}
-      <ParticleField />
-      <GridOverlay />
-      <FloatingOrbs />
+      <AnimatedBackground fixed />
 
       {/* Barre de progression du scroll */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-500 z-50 origin-left"
-        initial={{ scaleX: 0 }}
-        animate={{ scaleX: 1 }}
-        transition={{ duration: 0.5 }}
-        style={{ scaleX: typeof window !== 'undefined' ? window.scrollY / (document.body.scrollHeight - window.innerHeight) : 0 }}
+        style={{ scaleX: scrollYProgress }}
       />
 
       {/* ============================================================ */}
