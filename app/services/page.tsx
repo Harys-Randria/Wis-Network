@@ -184,7 +184,7 @@ export default function Services() {
   ];
 
   return (
-    <main className="relative bg-slate-950 min-h-screen overflow-x-hidden">
+    <main className="relative bg-slate-950 min-h-screen overflow-x-clip">
       {/* Fond animé global */}
       <AnimatedBackground fixed />
 
@@ -258,7 +258,7 @@ export default function Services() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.8 }}
-        className="sticky top-0 z-40 bg-slate-950/90 border-b border-slate-800/50 backdrop-blur-xl shadow-lg shadow-black/20"
+        className="sticky top-16 z-40 bg-slate-950/90 border-b border-slate-800/50 backdrop-blur-xl shadow-lg shadow-black/20"
       >
         <div className="max-w-7xl mx-auto">
           <div className="flex overflow-x-auto md:justify-center gap-2 px-4 py-4 scrollbar-hide">
@@ -302,7 +302,7 @@ export default function Services() {
       {/* ============================================================ */}
       {/* DÉPLOIEMENT */}
       {/* ============================================================ */}
-      <section id="deploiement" className="relative py-20 px-4 sm:px-6 lg:px-8 scroll-mt-28">
+      <section id="deploiement" className="relative py-20 px-4 sm:px-6 lg:px-8 scroll-mt-36">
         <div className="max-w-5xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -388,7 +388,7 @@ export default function Services() {
       {/* ============================================================ */}
       {/* SÉCURITÉ */}
       {/* ============================================================ */}
-      <section id="securite" className="relative py-20 px-4 sm:px-6 lg:px-8 scroll-mt-28">
+      <section id="securite" className="relative py-20 px-4 sm:px-6 lg:px-8 scroll-mt-36">
         <div className="max-w-5xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -450,7 +450,7 @@ export default function Services() {
       {/* ============================================================ */}
       {/* SUPPORT */}
       {/* ============================================================ */}
-      <section id="support" className="relative py-20 px-4 sm:px-6 lg:px-8 scroll-mt-28">
+      <section id="support" className="relative py-20 px-4 sm:px-6 lg:px-8 scroll-mt-36">
         <div className="max-w-5xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -514,7 +514,7 @@ export default function Services() {
       {/* ============================================================ */}
       {/* GESTION DE PROJET */}
       {/* ============================================================ */}
-      <section id="gestion-projet" className="relative py-20 px-4 sm:px-6 lg:px-8 scroll-mt-28">
+      <section id="gestion-projet" className="relative py-20 px-4 sm:px-6 lg:px-8 scroll-mt-36">
         <div className="max-w-5xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -572,7 +572,7 @@ export default function Services() {
       {/* ============================================================ */}
       {/* CLOUD & SYSTÈMES */}
       {/* ============================================================ */}
-      <section id="cloud-systemes" className="relative py-20 px-4 sm:px-6 lg:px-8 scroll-mt-28">
+      <section id="cloud-systemes" className="relative py-20 px-4 sm:px-6 lg:px-8 scroll-mt-36">
         <div className="max-w-5xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}

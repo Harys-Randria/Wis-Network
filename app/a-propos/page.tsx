@@ -74,7 +74,7 @@ export default function APropos() {
   ];
 
   return (
-    <main className="relative bg-slate-950 min-h-screen overflow-x-hidden">
+    <main className="relative bg-slate-950 min-h-screen overflow-x-clip">
       {/* Fond animé global */}
       <AnimatedBackground fixed />
 

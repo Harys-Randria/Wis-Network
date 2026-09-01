@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Mail, Phone, MapPin, Linkedin, Calendar, Briefcase, Lock, Users } from 'lucide-react';
+import { Mail, Phone, Linkedin, Calendar, Briefcase, Lock, Users } from 'lucide-react';
 import Image from 'next/image';
 
 export function Footer() {
@@ -59,13 +59,6 @@ export function Footer() {
                 <a href="tel:+33695862056" className="hover:text-blue-400 transition-colors">
                   +33 6 95 86 20 56 
                 </a>
-              </div>
-              <div className="flex items-start gap-2 text-slate-300 text-sm">
-                <MapPin className="w-4 h-4 text-blue-400 flex-shrink-0 mt-0.5" />
-                <span>
-                  54 avenue du marechal leclerc<br/>
-                  77230 dammartin en goele
-                </span>
               </div>
             </div>
           </div>
