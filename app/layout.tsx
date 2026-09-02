@@ -37,6 +37,13 @@ export default function RootLayout({
         {children}
         <Footer />
         <Analytics />
+        {/* Fairlytics - mesure d'audience sans cookie */}
+        <script
+          defer
+          id="fairlytics-id-ajcu6jd9k7ysd6"
+          data-fairlyticskey="ea0fc6e0e956f4e6b6c2b9a4aae097e2"
+          src="https://app.fairlytics.tech/tag/tag.js"
+        />
       </body>
     </html>
   )
